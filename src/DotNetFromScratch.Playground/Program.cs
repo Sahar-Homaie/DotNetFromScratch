@@ -36,6 +36,19 @@ workWithStudent.GetValue(new Student { Name = "Sahar" });
 var student = workWithStudent.ReturnValue();
 Console.WriteLine($"The student name is: {student.Name}");
 
+
+var studentResponse = new ApiResponse<Student> { 
+                        IsSuccessful = true, 
+                        ResultMessage = "was created successfully.", 
+                        Data = student
+                    };
+Console.WriteLine($"Data for Student {studentResponse.Data.Name} {studentResponse.ResultMessage}");
+
+var unsuccessfulRes = new ApiResponse<Student>("Error creating student.");
+Console.WriteLine(
+    $"Creation was {(unsuccessfulRes.IsSuccessful ? "successful" : "unsuccessful")}, " +
+    $"message: {unsuccessfulRes.ResultMessage}");
+
 #endregion
 
 
