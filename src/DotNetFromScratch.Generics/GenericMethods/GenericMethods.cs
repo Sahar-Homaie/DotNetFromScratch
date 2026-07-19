@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetFromScratch.Generics
+namespace DotNetFromScratch.Generics.GenericMethods
 {
     public class GenericMethods
     {

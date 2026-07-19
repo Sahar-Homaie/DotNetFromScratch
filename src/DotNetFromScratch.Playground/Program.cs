@@ -1,10 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-using DotNetFromScratch.Generics;
-
-Console.WriteLine("Hello, World!");
-
+﻿using DotNetFromScratch.Generics.GenericClasses;
+using DotNetFromScratch.Generics.GenericMethods;
+using DotNetFromScratch.Generics.Models;
 
 
+
+
+#region --------------------------- GenericMethods --------------------------------------
 var genericMethods = new GenericMethods();
 
 genericMethods.PrintValue("Sahar");
@@ -21,12 +22,22 @@ Student student1 = new Student { Name = "Sahar" };
 Student student2 = new Student { Name = "Maryam" };
 genericMethods.Swap(ref student1, ref student2);
 Console.WriteLine($"first {student1.Name} and second {student2.Name}");
+#endregion
+
+
+#region --------------------------- GenericClasses--------------------------------------
+var workWithValue = new WorkWithValue<int>();
+ workWithValue.GetValue(10);
+int number = workWithValue.ReturnValue();
+Console.WriteLine($"number is : {number}");
+
+var workWithStudent = new WorkWithValue<Student>();
+workWithStudent.GetValue(new Student { Name = "Sahar" });
+var student = workWithStudent.ReturnValue();
+Console.WriteLine($"The student name is: {student.Name}");
+
+#endregion
 
 
 
-
-public class Student
-{
-    public string Name  { get; set; }
-}
 
