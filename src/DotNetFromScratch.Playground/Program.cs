@@ -83,6 +83,11 @@ Console.WriteLine($"Cache value is: {cache.GetCachedValue()}");
 cache.CacheData(student);
 Console.WriteLine($"cache value is : {cache.GetCachedValue()?.Name}");
 
+
+var valueType = new ValueTypeHolder<int>();
+valueType.Value = 10;
+Console.WriteLine($"value type is: {valueType.Value}");
+
 #endregion
 
 
