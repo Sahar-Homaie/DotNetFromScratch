@@ -88,6 +88,12 @@ var valueType = new ValueTypeHolder<int>();
 valueType.Value = 10;
 Console.WriteLine($"value type is: {valueType.Value}");
 
+
+var objectFactory = new ObjectFactory<Student>();
+var std3 = objectFactory.CreateItem();
+std3.Name = "Ahmad";
+Console.WriteLine($"factory name is: {std3.Name}");
+
 #endregion
 
 
