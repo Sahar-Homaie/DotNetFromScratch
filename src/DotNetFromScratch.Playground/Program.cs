@@ -74,6 +74,15 @@ foreach (var item in allStudents)
 {
     Console.WriteLine($"{item.Id} - Name: {item.Name}");
 }
+
+
+
+var cache = new ReferenceTypeCache<Student>();
+Console.WriteLine($"Cache value is: {cache.GetCachedValue()}");
+
+cache.CacheData(student);
+Console.WriteLine($"cache value is : {cache.GetCachedValue()?.Name}");
+
 #endregion
 
 
