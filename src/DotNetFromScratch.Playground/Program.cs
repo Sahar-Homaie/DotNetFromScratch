@@ -1,4 +1,5 @@
-﻿using DotNetFromScratch.Generics.GenericClasses;
+﻿using DotNetFromScratch.Generics.Constraints;
+using DotNetFromScratch.Generics.GenericClasses;
 using DotNetFromScratch.Generics.GenericMethods;
 using DotNetFromScratch.Generics.Models;
 
@@ -37,18 +38,42 @@ var student = workWithStudent.ReturnValue();
 Console.WriteLine($"The student name is: {student.Name}");
 
 
-var studentResponse = new ApiResponse<Student> { 
-                        IsSuccessful = true, 
-                        ResultMessage = "was created successfully.", 
-                        Data = student
-                    };
-Console.WriteLine($"Data for Student {studentResponse.Data.Name} {studentResponse.ResultMessage}");
-
 var unsuccessfulRes = new ApiResponse<Student>("Error creating student.");
 Console.WriteLine(
     $"Creation was {(unsuccessfulRes.IsSuccessful ? "successful" : "unsuccessful")}, " +
     $"message: {unsuccessfulRes.ResultMessage}");
 
+#endregion
+
+
+#region --------------------------- GenericConstraints--------------------------------------
+var repo = new EntityRepository<Student>();
+var std1 = new Student { Id = 1, Name = "Sahar" };
+var std2 = new Student { Id = 2, Name = "Maryam" };
+repo.AddEntity(std1);
+repo.AddEntity(std2);
+var id = 2;
+var res = repo.Find(id);
+Console.WriteLine($"Student with Id: {res?.Id} is : {res?.Name}");
+
+//var delRes = repo.DeleteEntity(id);
+//Console.WriteLine($"deleting was {(delRes? "successful": "unsucsessful")}");
+//var delRes2 = repo.DeleteEntity(id);
+//Console.WriteLine($"deleting was {(delRes2? "successful": "unsuccessful")}");
+
+var allStudents = repo.GetAllEntities();
+
+foreach(var item in allStudents)
+{
+    Console.WriteLine($"{item.Id} - Name: {item.Name}");
+}
+var s = allStudents.ToList();
+s.Add(new Student { Id = 3, Name = "Mojgan"});
+s[0].Name = "Changed";
+foreach (var item in allStudents)
+{
+    Console.WriteLine($"{item.Id} - Name: {item.Name}");
+}
 #endregion
 
 
