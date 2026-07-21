@@ -94,6 +94,12 @@ var std3 = objectFactory.CreateItem();
 std3.Name = "Ahmad";
 Console.WriteLine($"factory name is: {std3.Name}");
 
+var entityFactory = new EntityFactory<Student>();
+var std4 = entityFactory.CreateRefTypeEntity();
+std4.Id = 4;
+std4.Name = "Zahra Ame";
+Console.WriteLine($"{std4.Id}- {std4.Name}");
+
 #endregion
 
 
