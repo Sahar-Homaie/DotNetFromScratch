@@ -1,5 +1,6 @@
 ﻿using DotNetFromScratch.Generics.Constraints;
 using DotNetFromScratch.Generics.GenericClasses;
+using DotNetFromScratch.Generics.GenericInterfaces;
 using DotNetFromScratch.Generics.GenericMethods;
 using DotNetFromScratch.Generics.Models;
 
@@ -100,6 +101,30 @@ std4.Id = 4;
 std4.Name = "Zahra Ame";
 Console.WriteLine($"{std4.Id}- {std4.Name}");
 
+#endregion
+
+
+#region --------------------------- GenericInterfaces--------------------------------------
+IRepository<Product, Guid> prodRepo = new InMemoryRepository<Product, Guid>();
+var product1 = new Product() { Id = Guid.NewGuid(), Name = "Mouse" };
+var product2 = new Product() { Id = Guid.NewGuid(), Name = "Keyboard" };
+prodRepo.Add(product1);
+prodRepo.Add(product2);
+
+foreach (var item in prodRepo.GetAll())
+{
+    Console.WriteLine($"id: {item.Id} - ProdName: {item.Name}");
+}
+
+var selectProd = prodRepo.Find(product1.Id);
+Console.WriteLine($"found product: {selectProd?.Name}");
+
+var isDeleted = prodRepo.Delete(product2.Id);
+Console.WriteLine($"Deleted: {isDeleted}");
+foreach (var item in prodRepo.GetAll())
+{
+    Console.WriteLine($"id: {item.Id}- ProdName: {item.Name}");
+}
 #endregion
 
 
