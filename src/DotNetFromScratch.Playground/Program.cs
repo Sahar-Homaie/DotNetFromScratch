@@ -105,7 +105,7 @@ Console.WriteLine($"{std4.Id}- {std4.Name}");
 
 
 #region --------------------------- GenericInterfaces--------------------------------------
-IRepository<Product, Guid> prodRepo = new InMemoryRepository<Product, Guid>();
+IInMemoryRepository<Product, Guid> prodRepo = new InMemoryRepository<Product, Guid>();
 var product1 = new Product() { Id = Guid.NewGuid(), Name = "Mouse" };
 var product2 = new Product() { Id = Guid.NewGuid(), Name = "Keyboard" };
 prodRepo.Add(product1);
@@ -125,6 +125,9 @@ foreach (var item in prodRepo.GetAll())
 {
     Console.WriteLine($"id: {item.Id}- ProdName: {item.Name}");
 }
+
+prodRepo.Clear();
+Console.WriteLine($"product count is: {prodRepo.GetAll().Count()}");
 #endregion
 
 

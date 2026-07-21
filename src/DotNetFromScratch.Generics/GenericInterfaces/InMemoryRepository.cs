@@ -2,7 +2,7 @@
 
 namespace DotNetFromScratch.Generics.GenericInterfaces
 {
-    public class InMemoryRepository<TEntity, TId> : IRepository<TEntity, TId>
+    public class InMemoryRepository<TEntity, TId> : IInMemoryRepository<TEntity, TId>
         where TEntity: IEntity<TId> 
     {
         private readonly List<TEntity> _entities = new();
@@ -25,6 +25,11 @@ namespace DotNetFromScratch.Generics.GenericInterfaces
         public IEnumerable<TEntity> GetAll()
         {
             return _entities;
+        }
+
+        public void Clear()
+        {
+            _entities.Clear();
         }
     }
 }
