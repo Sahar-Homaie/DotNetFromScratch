@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DotNetFromScratch.Delegates\DotNetFromScratch.Delegates.csproj" />
     <ProjectReference Include="..\DotNetFromScratch.Generics\DotNetFromScratch.Generics.csproj" />
   </ItemGroup>
 

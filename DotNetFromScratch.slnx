@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/DotNetFromScratch.Delegates/DotNetFromScratch.Delegates.csproj" Id="fd8c8e90-8fc4-49c9-af96-deb262182bda" />
     <Project Path="src/DotNetFromScratch.Generics/DotNetFromScratch.Generics.csproj" Id="1c0b1d37-51c9-461e-b596-e87d76ecec3e" />
     <Project Path="src/DotNetFromScratch.Playground/DotNetFromScratch.Playground.csproj" Id="3ae9db3a-76ef-4bd6-88bd-974709d4428f" />
   </Folder>
