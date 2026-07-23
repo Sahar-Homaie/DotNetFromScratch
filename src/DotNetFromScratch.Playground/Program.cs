@@ -3,6 +3,7 @@ using DotNetFromScratch.Generics.GenericClasses;
 using DotNetFromScratch.Generics.GenericInterfaces;
 using DotNetFromScratch.Generics.GenericMethods;
 using DotNetFromScratch.Generics.Models;
+using DotNetFromScratch.Playground.Delegates;
 
 
 
@@ -128,6 +129,12 @@ foreach (var item in prodRepo.GetAll())
 
 prodRepo.Clear();
 Console.WriteLine($"product count is: {prodRepo.GetAll().Count()}");
+#endregion
+
+
+#region ------------------------ Delegates ------------------------------
+BasicDelegateDemo.Run();
+
 #endregion
 
 
