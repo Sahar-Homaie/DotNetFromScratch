@@ -6,6 +6,7 @@ namespace DotNetFromScratch.Playground.Delegates
     {
         public static void Run()
         {
+
             #region ------------------------------- Basic Delegates ----------------------------------------------
             MessageHandler msg = SayHello;
             msg();
@@ -25,7 +26,7 @@ namespace DotNetFromScratch.Playground.Delegates
 
             Console.WriteLine($"calculatedValue: {ExecuteCalculation(1200,800, Subtract)}");
             #endregion
-            #region ----------------------------- MultiCast Delegates ------------------------------------------
+            #region ------------------------------- MultiCast Delegates ------------------------------------------
             MessageHandler? multiHandler;
             multiHandler = SayHello;
             multiHandler += PrintError;
@@ -47,6 +48,14 @@ namespace DotNetFromScratch.Playground.Delegates
                 Console.WriteLine($"calc item is : {calcItem(10,6)}");
             }
             #endregion
+            #region ------------------------------- Anonymous Method ----------------------------------------------
+            CalculationHandler divide = delegate (int firstNum, int secondNum)
+            {
+                return firstNum / secondNum;
+            };
+            Console.WriteLine($"Anonymous method result is: {divide(60,6)}");
+            #endregion
+
         }
 
         private static void SayHello()
