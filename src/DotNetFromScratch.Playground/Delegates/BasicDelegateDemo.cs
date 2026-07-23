@@ -55,6 +55,20 @@ namespace DotNetFromScratch.Playground.Delegates
             };
             Console.WriteLine($"Anonymous method result is: {divide(60,6)}");
             #endregion
+            #region ------------------------------- Lambda Expression ----------------------------------------------
+            CalculationHandler modLong = (int firstNum, int secondNum) =>
+            {
+                return firstNum % secondNum;
+            };
+            CalculationHandler modMid = (int firstNum, int secondNum) => firstNum % secondNum;
+            CalculationHandler mod = (firstNum, secondNum) => firstNum % secondNum;
+            Console.WriteLine($"Lambda mod result is {mod(22,10)}");
+
+            MessageHandler msgLambda = () => Console.WriteLine("This is a test for lamba with no input/output");
+            msgLambda();
+            MessageWithParameterHandler msgWithParamLambda = msg => Console.WriteLine(msg);
+            msgWithParamLambda("This is a test for one input lambda");
+            #endregion
 
         }
 
