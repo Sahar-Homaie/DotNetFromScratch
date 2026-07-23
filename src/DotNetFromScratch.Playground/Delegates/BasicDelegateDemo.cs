@@ -6,6 +6,7 @@ namespace DotNetFromScratch.Playground.Delegates
     {
         public static void Run()
         {
+            #region ------------------------------- Basic Delegates ----------------------------------------------
             MessageHandler msg = SayHello;
             msg();
             msg = PrintError;
@@ -23,6 +24,29 @@ namespace DotNetFromScratch.Playground.Delegates
             Console.WriteLine($"calculatedValue: {ExecuteCalculation(200,3800,Multiply)}");
 
             Console.WriteLine($"calculatedValue: {ExecuteCalculation(1200,800, Subtract)}");
+            #endregion
+            #region ------------------------ MultiCast Delegates -----------------------------------------
+            MessageHandler? multiHandler;
+            multiHandler = SayHello;
+            multiHandler += PrintError;
+            Console.WriteLine("MultiCast delegate:");
+            multiHandler();
+            multiHandler -= SayHello;
+            Console.WriteLine("after removing one method:");
+            multiHandler();
+            multiHandler -= PrintError;
+            multiHandler?.Invoke(); //for handling null
+
+            CalculationHandler multiCalc = Add;
+            multiCalc += Multiply;
+            multiCalc += Subtract;
+            Console.WriteLine($"result for multi calculation is: {multiCalc(10,6)}");
+
+            foreach(CalculationHandler calcItem in multiCalc.GetInvocationList())
+            {
+                Console.WriteLine($"calc item is : {calcItem(10,6)}");
+            }
+            #endregion
         }
 
         private static void SayHello()
