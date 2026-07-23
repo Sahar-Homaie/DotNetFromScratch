@@ -25,7 +25,7 @@ namespace DotNetFromScratch.Playground.Delegates
 
             Console.WriteLine($"calculatedValue: {ExecuteCalculation(1200,800, Subtract)}");
             #endregion
-            #region ------------------------ MultiCast Delegates -----------------------------------------
+            #region ----------------------------- MultiCast Delegates ------------------------------------------
             MessageHandler? multiHandler;
             multiHandler = SayHello;
             multiHandler += PrintError;
